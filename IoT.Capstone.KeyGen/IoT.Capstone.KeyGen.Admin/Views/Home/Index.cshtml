@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "View IDs";
+}
+
+@model List<EdxUser>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>View the edX IDs mapped to Unique IDs.</p>
+</div>
+<hr />
+<div>
+    @Html.ActionLink("Download as CSV", "GenerateCsv", "home", null, new { @class = "btn btn-primary" })
+</div>
+<hr/> 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <span>EdxId</span>
+            </th>
+            <th>
+                <span>Uid</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EdxId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Uid)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+<div>
+    @Html.ActionLink("Download as CSV", "GenerateCsv", "home", null, new { @class = "btn btn-primary" })
+</div>

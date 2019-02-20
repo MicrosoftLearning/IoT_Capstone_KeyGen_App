@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Generate Unique ID";
+    Layout = "_Layout";
+}
+
+@model RegisterViewModel
+
+
+<div>
+    <h1 class="display-4">Welcome</h1>
+    <form method="post" action="/Home/Register" id="myForm">
+
+        <div class="form-row">
+            <div class="form-group col-md-12 col-lg-12">
+                <label asp-for="EdxId" class="col-form-label"></label>
+                <input asp-for="EdxId" class="form-control form-control-lg col" />
+                <span asp-validation-for="EdxId" class="text-danger field-validation-error"></span>
+            </div>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary" id="submitButton">Register</button>
+    </form>
+</div>
+
+<div id="divProcessing" class="loading"></div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+            // Hide the "busy" Gif at load:
+            $("#divProcessing").hide();
+
+            // Attach click handler to the submit button:
+            $('#myForm').submit(function() {
+                if ($(this).valid()) {
+                    $('#submitButton').hide();
+                    $("#divProcessing").show();
+                }
+            });
+
+        });
+    </script>
+}

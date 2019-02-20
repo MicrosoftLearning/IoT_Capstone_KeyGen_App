@@ -1,0 +1,11 @@
+﻿@model EdxUser
+
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h1 class="display-4">User Registration</h1>
+<DL>
+    <DT>@Html.DisplayNameFor(model => model.EdxId)<dd>@Html.DisplayFor(model => model.EdxId)
+    <DT>@Html.DisplayNameFor(model => model.Uid)<dd>@Model.Uid.ToString("X8")
+</DL>
